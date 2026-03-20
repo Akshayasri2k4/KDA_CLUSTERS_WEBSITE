@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.05);
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 45px;
+    margin-right: 10px;
+}
+
+/* NAV LINKS */
+nav {
+    display: flex;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+/* HAMBURGER MENU */
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* Hero */
+.hero {
+    height: 100vh;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    animation: fadeIn 2s ease-in;
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.hero button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background: #38bdf8;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero button:hover {
+    transform: scale(1.1);
+}
+
+/* Sections */
+.section {
+    padding: 100px 10%;
+}
+
+/* Grid */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.grid-3 {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/* Glass Cards */
+.glass-card {
+    width: 300px;
+    padding: 25px;
+    margin: 20px;
+    border-radius: 15px;
+
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+
+    transition: 0.3s;
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Service Cards */
+.service-card {
+    width: 220px;
+    margin: 15px;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+
+    background: #1e293b;
+    transition: 0.3s;
+}
+
+.service-card i {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #38bdf8;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+    background: #334155;
+}
+
+/* Contact */
+.contact {
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #020617;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* ========================= */
+/* 📱 MOBILE RESPONSIVE */
+/* ========================= */
+@media (max-width: 768px) {
+
+    /* Navbar layout */
+    .navbar {
+        flex-direction: row;
+        padding: 10px 20px;
+    }
+
+    /* Show hamburger */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Hide nav by default */
+    nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background: #0f172a;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Show nav when active */
+    nav.active {
+        display: flex;
+    }
+
+    nav a {
+        margin: 15px 0;
+    }
+
+    /* Hero */
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    /* Sections */
+    .section {
+        padding: 60px 20px;
+    }
+
+    /* Grid Layout */
+    .grid, .grid-3 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Cards */
+    .glass-card,
+    .service-card {
+        width: 90%;
+    }
+}
