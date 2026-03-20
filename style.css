@@ -8,10 +8,58 @@ html {
     scroll-behavior: smooth;
 }
 
+/* 🌿 LIGHT GREEN PROFESSIONAL BACKGROUND */
 body {
     font-family: 'Poppins', sans-serif;
-    background: #0f172a;
-    color: white;
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #064e3b;  /* darker green for readability */
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ✨ TECH GRID (SUBTLE) */
+body::before {
+    content: "";
+    position: fixed;
+    pointer-events: none; 
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(16,185,129,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,185,129,0.08) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -2;
+}
+
+/* 💎 FLOATING ANIMATED BLOBS */
+body::after {
+    content: "";
+    position: fixed;
+    pointer-events: none; 
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(16,185,129,0.35), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(34,197,94,0.35), transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(5,150,105,0.2), transparent 50%);
+    animation: floatBg 12s ease-in-out infinite alternate;
+    z-index: -1;
+}
+
+/* 🌊 ANIMATION */
+@keyframes floatBg {
+    0% {
+        transform: translateY(0px) translateX(0px);
+    }
+    100% {
+        transform: translateY(-40px) translateX(20px);
+    }
+}
+
+/* Fix background overlap issue */
+.hero, .navbar, .section, footer {
+    position: relative;
+    z-index: 1;
 }
 
 /* Navbar */
@@ -23,7 +71,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    backdrop-filter: blur(10px);
     background: rgba(255,255,255,0.05);
     z-index: 1000;
 }
@@ -46,12 +93,12 @@ nav {
 nav a {
     margin: 0 15px;
     text-decoration: none;
-    color: white;
+    color: #064e3b;
     transition: 0.3s;
 }
 
 nav a:hover {
-    color: #38bdf8;
+     color: #10b981;
 }
 
 /* HAMBURGER MENU */
@@ -59,39 +106,51 @@ nav a:hover {
     display: none;
     font-size: 26px;
     cursor: pointer;
+    color: #064e3b;
 }
 
 /* Hero */
+.hero button {
+    display: inline-block;   /* IMPORTANT */
+    margin-top: 20px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(16,185,129,0.4);
+}
+/* KEEP HERO CENTERED */
 .hero {
     height: 100vh;
-    background: linear-gradient(135deg, #1e293b, #0f172a);
+
+    /* Semi-transparent background */
+    background: linear-gradient(135deg, rgba(185, 243, 206, 0.85), rgba(179, 238, 201, 0.85));
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     text-align: center;
-
-    animation: fadeIn 2s ease-in;
+}
+.bg-circle {
+    opacity: 0.75; /* slightly increase visibility */
 }
 
-.hero h1 {
-    font-size: 50px;
-    margin-bottom: 10px;
-}
-
+/* Ensure text alignment */
+.hero h1,
+.hero p,
 .hero button {
-    margin-top: 20px;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 30px;
-    background: #38bdf8;
-    color: black;
-    cursor: pointer;
-    transition: 0.3s;
+    text-align: center;
 }
 
 .hero button:hover {
-    transform: scale(1.1);
+    transform: scale(1.08);
+    box-shadow: 0 12px 30px rgba(16,185,129,0.6);
 }
 
 /* Sections */
@@ -119,15 +178,30 @@ nav a:hover {
     margin: 20px;
     border-radius: 15px;
 
-    backdrop-filter: blur(15px);
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: linear-gradient(135deg, #10b981, #059669); /* green card */
+    color: white;   /* text white */
+
+    border: none;
 
     transition: 0.3s;
 }
 
+.glass-card h2,
+.glass-card p {
+    color: white;
+}
+
 .glass-card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(16,185,129,0.4);
+}
+.glass-card * {
+    color: #064e3b !important;
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(16,185,129,0.2);
 }
 
 /* Service Cards */
@@ -137,6 +211,7 @@ nav a:hover {
     padding: 30px;
     border-radius: 15px;
     text-align: center;
+ color: #e0ebe8;
 
     background: #1e293b;
     transition: 0.3s;
@@ -145,7 +220,7 @@ nav a:hover {
 .service-card i {
     font-size: 30px;
     margin-bottom: 10px;
-    color: #38bdf8;
+    color: #e6eaec;
 }
 
 .service-card:hover {
@@ -186,6 +261,8 @@ footer {
     .menu-toggle {
         display: block;
     }
+   
+ 
 
     /* Hide nav by default */
     nav {
@@ -194,7 +271,7 @@ footer {
         top: 60px;
         right: 0;
         width: 100%;
-        background: #0f172a;
+        background: #a7f3d0;
         flex-direction: column;
         text-align: center;
     }
@@ -232,5 +309,65 @@ footer {
     .glass-card,
     .service-card {
         width: 90%;
+    }
+}
+
+/* ========================= */
+/* 🌿 PREMIUM BACKGROUND SHAPES */
+/* ========================= */
+
+/* Soft wave background */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url("https://www.svgrepo.com/show/331760/wave.svg") no-repeat bottom;
+    background-size: cover;
+    opacity: 0.15;
+    z-index: -3;
+}
+
+/* Floating circles */
+.bg-circle {
+    position: fixed;
+    border-radius: 50%;
+    opacity: 0.2;
+    z-index: -2;
+    animation: float 10s ease-in-out infinite alternate;
+}
+
+/* Different circles */
+.circle1 {
+    width: 250px;
+    height: 250px;
+    background: #10b981;
+    top: 15%;
+    left: 5%;
+}
+
+.circle2 {
+    width: 180px;
+    height: 180px;
+    background: #34d399;
+    bottom: 10%;
+    right: 10%;
+}
+
+.circle3 {
+    width: 120px;
+    height: 120px;
+    background: #6ee7b7;
+    top: 50%;
+    left: 60%;
+}
+
+/* Animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-40px);
     }
 }
