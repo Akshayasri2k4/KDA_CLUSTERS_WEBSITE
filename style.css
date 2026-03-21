@@ -76,20 +76,30 @@ body::after {
 }
 
 .insta-icon {
-    font-size: 22px;
-    margin-left: 15px;
-    color: #e1306c; /* Instagram pink */
+    font-size: 24px;
+    margin-top: 10px;
+
+    background: radial-gradient(circle at 30% 107%, 
+        #fdf497 0%, 
+        #fdf497 5%, 
+        #fd5949 45%, 
+        #d6249f 60%, 
+        #285AEB 90%);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 
     transition: 0.3s;
 }
 
 .insta-icon:hover {
     transform: scale(1.2);
-    color: #e1306c;
+    color: #c13584;
 }
 
 .insta-icon {
     box-shadow: 0 0 10px rgba(225,48,108,0.5);
+    filter: drop-shadow(0 0 5px rgba(214,36,159,0.6));
     border-radius: 50%;
     padding: 5px;
 }
